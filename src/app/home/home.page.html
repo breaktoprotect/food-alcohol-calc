@@ -1,0 +1,68 @@
+<ion-header [translucent]="false">
+  <ion-toolbar color='primary'>
+    <ion-title>
+      Food-Alcohol Split Calculator
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col>
+        <ion-label>Bill Total</ion-label>
+        <ion-input [(ngModel)]="bill_total_amount" placeholder="0.00" id="input_bill_total">$
+        </ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-label>Food Total</ion-label>
+        <ion-input [(ngModel)]="food_total_amount" placeholder="0.00" id="input_food_total"><ion-icon (click)="input_food_amount()" name="add-circle-outline"></ion-icon>$
+        </ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-label>Alcohol Total</ion-label>
+        <ion-input [(ngModel)]="alcohol_total_amount" readonly placeholder="Auto Calculated" id="input_alcohol_total">$
+        </ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label>Food Split Pax</ion-label>
+        <ion-input [(ngModel)]="num_of_eaters" placeholder="No. of persons">
+        </ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-label>Alcohol Split Pax</ion-label>
+        <ion-input [(ngModel)]="num_of_drinkers" placeholder="No. of persons">
+        </ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-item>
+        <ion-label>Amount to pay for each non-drinkers:</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{ amount_per_non_drinker }}</ion-label>
+      </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-col></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-item>
+        <ion-label>Amount to pay for each drinker:</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{ amount_per_drinker }}</ion-label>
+      </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <br>
+        <ion-button fill="outline" (click)="calculate()">
+          <ion-icon name="calculator-outline"></ion-icon>Calculate!
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
